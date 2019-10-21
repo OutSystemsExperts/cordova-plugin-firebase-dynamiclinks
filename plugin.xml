@@ -101,24 +101,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <header-file src="src/ios/Firebase.h" />
 
         <framework src="src/ios/FirebaseDynamicLinks.framework" custom="true" embed="false" />
-        <framework src="src/ios/FIRAnalyticsConnector.framework" custom="true" embed="false" />
-        <framework src="src/ios/FirebaseAnalytics.framework" custom="true" embed="false" />
-        <framework src="src/ios/FirebaseCore.framework" custom="true" embed="false" />
-        <framework src="src/ios/FirebaseCoreDiagnostics.framework" custom="true" embed="false" />
-        <framework src="src/ios/FirebaseInstanceID.framework" custom="true" embed="false" />
-        <framework src="src/ios/GoogleAppMeasurement.framework" custom="true" embed="false" />
-        <framework src="src/ios/GoogleUtilities.framework" custom="true" embed="false" />
-        <framework src="src/ios/nanopb.framework" custom="true" embed="false" />
-
-        <!-- <podspec>
-            <config>
-                <source url="https://github.com/CocoaPods/Specs.git"/>
-            </config>
-            <pods>
-                <pod name="Firebase/Core" spec="~> 6.3.0" />
-                <pod name="Firebase/DynamicLinks" spec="~> 6.3.0" />
-            </pods>
-        </podspec> -->
+        
     </platform>
 
 </plugin>

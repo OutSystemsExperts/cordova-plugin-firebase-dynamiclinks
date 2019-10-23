@@ -6,8 +6,7 @@ var AdmZip = require("adm-zip");
 var utils = require("./utilities");
 
 var constants = {
-  googleServices: "google-services",
-  folderNamePrefix: "firebase."
+  googleServices: "google-services"
 };
 
 module.exports = function(context) {
@@ -32,9 +31,9 @@ module.exports = function(context) {
   var sourceFolderPath;
 
   if (cordovaAbove7) {
-    sourceFolderPath = path.join(context.opts.projectRoot, "www", constants.folderNamePrefix + appId);
+    sourceFolderPath = path.join(context.opts.projectRoot, "www", constants.googleServices);
   } else {
-    sourceFolderPath = path.join(wwwPath, constants.folderNamePrefix + appId);
+    sourceFolderPath = path.join(wwwPath, constants.googleServices);
   }
   
   var googleServicesZipFile = utils.getZipFile(sourceFolderPath, constants.googleServices);

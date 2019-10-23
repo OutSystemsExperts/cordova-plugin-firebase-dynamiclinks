@@ -21,6 +21,9 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <preference name="APP_DOMAIN" />
     <preference name="PAGE_LINK_DOMAIN" />
 
+    <hook type="before_plugin_install" src="hooks/configurations/installDependencies.js" />
+    <hook type="before_plugin_install" src="hooks/configurations/unzipAndCopyConfigurations.js" />
+
     <platform name="android">
         <preference name="FIREBASE_CORE_VERSION" default="16.0.8"/>
         <preference name="FIREBASE_DYNAMIC_LINKS_VERSION" default="16.1.8"/>
@@ -52,6 +55,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <source-file src="src/android/FirebaseDynamicLinksPlugin.java" target-dir="src/by/chemerisuk/cordova/firebase" />
 
         <dependency id="cordova-support-android-plugin" version="~1.0.0"/>
+
+        <resource-file src="google-services.json" target="./google-services.json" />
 
         <framework src="com.google.firebase:firebase-core:$FIREBASE_CORE_VERSION" />
         <framework src="com.google.firebase:firebase-dynamic-links:$FIREBASE_DYNAMIC_LINKS_VERSION" />
@@ -99,6 +104,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <header-file src="src/ios/FirebaseDynamicLinksPlugin.h" />
         <source-file src="src/ios/FirebaseDynamicLinksPlugin.m" />
         <header-file src="src/ios/Firebase.h" />
+
+        <resource-file src="GoogleService-Info.plist" target="./GoogleService-Info.plist" />
 
         <framework src="src/ios/FirebaseDynamicLinks.framework" custom="true" embed="false" />
         

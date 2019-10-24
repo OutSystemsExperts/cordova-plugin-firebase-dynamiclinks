@@ -25,9 +25,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <hook type="before_plugin_install" src="hooks/configurations/unzipAndCopyConfigurations.js" />
 
     <platform name="android">
-        <preference name="FIREBASE_CORE_VERSION" default="16.0.8"/>
-        <preference name="FIREBASE_DYNAMIC_LINKS_VERSION" default="16.1.8"/>
-
         <config-file parent="/*" target="res/xml/config.xml">
             <preference name="DYNAMIC_LINK_URIPREFIX" value="https://$PAGE_LINK_DOMAIN"/>
             <feature name="FirebaseDynamicLinks">
@@ -57,9 +54,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <dependency id="cordova-support-android-plugin" version="~1.0.0"/>
 
         <resource-file src="google-services.json" target="./google-services.json" />
-
-        <framework src="com.google.firebase:firebase-core:$FIREBASE_CORE_VERSION" />
-        <framework src="com.google.firebase:firebase-dynamic-links:$FIREBASE_DYNAMIC_LINKS_VERSION" />
     </platform>
 
     <platform name="ios">

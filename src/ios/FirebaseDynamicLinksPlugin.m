@@ -73,7 +73,7 @@
     }
 
     FIRDynamicLinkComponents *linkBuilder = [[FIRDynamicLinkComponents alloc]
-                                             initWithLink:link domainURIPrefix:domainUriPrefix];
+                                             initWithLink:link domain:domainUriPrefix];
     NSDictionary* androidInfo = params[@"androidInfo"];
     if (androidInfo) {
         linkBuilder.androidParameters = [self getAndroidParameters:androidInfo];

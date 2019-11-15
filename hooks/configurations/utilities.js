@@ -90,7 +90,6 @@ function getAppId(context) {
 
 function isCordovaAbove(context, version) {
   var cordovaVersion = context.opts.cordova.version;
-  console.log(cordovaVersion);
   var sp = cordovaVersion.split('.');
   return parseInt(sp[0]) >= version;
 }
@@ -122,8 +121,6 @@ function getAndroidTargetSdk(context) {
 }
 
 function copyFromSourceToDestPath(defer, sourcePath, destPath) {
-  console.log("sourcePath", sourcePath)
-  console.log("destPath", destPath)
   fs.createReadStream(sourcePath).pipe(fs.createWriteStream(destPath))
   .on("close", function (err) {
     defer.resolve();
@@ -138,6 +135,20 @@ function checkIfFolderExists(path) {
   return fs.existsSync(path);
 }
 
+function rmNonEmptyDir(dir_path) {
+  if (fs.existsSync(dir_path)) {
+      fs.readdirSync(dir_path).forEach(function(entry) {
+          var entry_path = path.join(dir_path, entry);
+          if (fs.lstatSync(entry_path).isDirectory()) {
+              rmNonEmptyDir(entry_path);
+          } else {
+              fs.unlinkSync(entry_path);
+          }
+      });
+      fs.rmdirSync(dir_path);
+  }
+}
+
 module.exports = {
   isCordovaAbove,
   handleError,
@@ -149,5 +160,6 @@ module.exports = {
   getFilesFromPath,
   createOrCheckIfFolderExists,
   checkIfFolderExists,
-  getAndroidTargetSdk
+  getAndroidTargetSdk,
+  rmNonEmptyDir
 };
